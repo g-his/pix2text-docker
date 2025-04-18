@@ -27,7 +27,10 @@ jobs:
           zeroash/pix2text
         tags: |
           type=ref,event=branch
-          
+
+    - name: Pull latest image
+      run: docker pull zeroash/pix2text:latest 
+
     - name: Build and push Docker images
       uses: docker/build-push-action@v6.15.0
       with:
