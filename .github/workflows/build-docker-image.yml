@@ -33,3 +33,4 @@ jobs:
       with:
         tags: zeroash/pix2text:latest
         push: true
+        pull: true
