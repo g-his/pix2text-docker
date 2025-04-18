@@ -24,16 +24,14 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: |
-          zeroash/pix2text
+          zeroash/pix2text-server
         tags: |
           type=ref,event=branch
-
-    - name: Pull latest image
-      run: docker pull zeroash/pix2text:latest 
 
     - name: Build and push Docker images
       uses: docker/build-push-action@v6.15.0
       with:
-        tags: zeroash/pix2text:latest
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
         push: true
         pull: true
